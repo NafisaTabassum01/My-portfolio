@@ -60,9 +60,9 @@ const AcademicTimeline = () => {
 
     const symbols = [
       "</>",
-      "{}",
-      "[]",
-      "()",
+      "{ }",
+      "[ ]",
+      "( )",
       "=>",
       "const",
       "let",
@@ -91,7 +91,7 @@ const AcademicTimeline = () => {
       el.style.fontSize = size + "px";
 
       // 🔥 LOW VISIBILITY
-      el.style.opacity = "0.85";
+      el.style.opacity = "0.9";
 
       // subtle glow
       el.style.textShadow = "0 0 6px rgba(99,102,241,0.25)";
@@ -155,11 +155,11 @@ const AcademicTimeline = () => {
             />
           </div>
 
-          <div className="space-y-24">
+          <div className="space-y-18">
             {timelineEvents.map((event, index) => (
               <div
                 key={index}
-                className={`flex flex-col lg:flex-row items-center gap-8 ${
+                className={`flex flex-col w-10/12 mx-auto lg:flex-row items-center gap-2 ${
                   event.side === "right" ? "lg:flex-row-reverse" : ""
                 }`}
               >

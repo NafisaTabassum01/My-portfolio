@@ -16,19 +16,20 @@ export default function CustomCursor() {
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
-      
-      // Update CSS variables for background glow
+
       document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
       document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
     };
 
     const handleHover = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      const isClickable = 
-        target.tagName === "BUTTON" || 
-        target.tagName === "A" || 
-        target.closest("button") || 
+
+      const isClickable =
+        target.tagName === "BUTTON" ||
+        target.tagName === "A" ||
+        target.closest("button") ||
         target.closest("a");
+
       setIsHovering(!!isClickable);
     };
 
@@ -43,6 +44,7 @@ export default function CustomCursor() {
 
   return (
     <>
+      {/* OUTER RING */}
       <motion.div
         className="fixed top-0 left-0 w-8 h-8 rounded-full border border-indigo-500 pointer-events-none z-[9999] mix-blend-screen"
         style={{
@@ -50,10 +52,14 @@ export default function CustomCursor() {
           y: cursorYSpring,
           translateX: "-50%",
           translateY: "-50%",
-          scale: isHovering ? 2 : 1,
-          backgroundColor: isHovering ? "rgba(79, 70, 229, 0.2)" : "transparent",
+          scale: isHovering ? 1.25 : 1,   // 👈 small expand (was 2 → now 1.25)
+          backgroundColor: isHovering
+            ? "rgba(79, 70, 229, 0.12)"
+            : "transparent",
         }}
       />
+
+      {/* INNER DOT */}
       <motion.div
         className="fixed top-0 left-0 w-1.5 h-1.5 bg-indigo-500 rounded-full pointer-events-none z-[9999]"
         style={{
@@ -61,6 +67,14 @@ export default function CustomCursor() {
           y: cursorY,
           translateX: "-50%",
           translateY: "-50%",
+        }}
+        animate={{
+          scale: isHovering ? 1.2 : 1, // 👈 slight pop only
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 400,
+          damping: 25,
         }}
       />
     </>

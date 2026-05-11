@@ -24,7 +24,7 @@ const Contact = () => {
             
             <div className="space-y-8">
               {[
-                { icon: <Mail size={24} />, label: "hello@nafisa.dev", href: "mailto:hello@nafisa.dev" },
+                { icon: <Mail size={24} />, label: "tabassumnafisa28.01@gmail.com", href: "mailto:hello@nafisa.dev" },
                 { icon: <Linkedin size={24} />, label: "linkedin.com/in/nafisa", href: "#" },
                 { icon: <Instagram size={24} />, label: "@nafisa_codes", href: "#" }
               ].map((item, i) => (
@@ -56,7 +56,7 @@ const Contact = () => {
                   <input
                     className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all"
                     id="name"
-                    placeholder="John Doe"
+                    placeholder="Enter your name"
                     type="text"
                   />
                 </div>
@@ -67,7 +67,7 @@ const Contact = () => {
                   <input
                     className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all"
                     id="email"
-                    placeholder="john@example.com"
+                    placeholder="name@example.com"
                     type="email"
                   />
                 </div>
